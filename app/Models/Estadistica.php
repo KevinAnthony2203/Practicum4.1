@@ -10,22 +10,9 @@ class Estadistica extends Model
     use HasFactory;
 
     protected $fillable = [
-        'patient_id',
-        'doctor_id',
         'date',
-        'description'
+        'citas_programadas',
+        'citas_canceladas',
+        'citas_completadas'
     ];
-
-    /* Relationship with the Patient model */
-    public function patient()
-    {
-    return $this->belongsTo(Patient::class);
-    }
-
-    /* Relationship with the Doctor model */
-    public function doctor()
-    {
-        return $this->belongsTo(Doctor::class);
-    }
-
 }

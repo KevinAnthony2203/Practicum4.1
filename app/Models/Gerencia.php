@@ -13,7 +13,5 @@ class Gerencia extends Model
         'name',
         'last_name',
         'position',
-        'phone',
-        'email'
     ];
 }

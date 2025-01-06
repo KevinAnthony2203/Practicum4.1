@@ -12,7 +12,8 @@ class GerenciaController extends Controller
      */
     public function index()
     {
-        //
+        $gerencias = Gerencia::all();
+        return view('gerencias.index', compact('gerencias'));
     }
 
     /**
@@ -20,7 +21,7 @@ class GerenciaController extends Controller
      */
     public function create()
     {
-        //
+        return view('gerencias.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class GerenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+        ]);
+
+        Gerencia::create($request->all());
+
+        return redirect()->route('gerencias.index')
+                        ->with('success', 'Gerencia created successfully.');
     }
 
     /**
@@ -36,7 +46,7 @@ class GerenciaController extends Controller
      */
     public function show(Gerencia $gerencia)
     {
-        //
+        return view('gerencias.show', compact('gerencia'));
     }
 
     /**

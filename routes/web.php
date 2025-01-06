@@ -11,6 +11,7 @@ use App\Http\Controllers\DisponibilidadController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\RecordatorioController;
 use App\Http\Controllers\GerenciaController;
+use App\Http\Controllers\EstadisticaController;
 
 
 /*
@@ -58,3 +59,4 @@ Route::resource('disponibilidades', DisponibilidadController::class);
 Route::resource('notificaciones', NotificacionController::class);
 Route::resource('recordatorios', RecordatorioController::class);
 Route::resource('gerencias', GerenciaController::class);
+Route::resource('estadisticas', EstadisticaController::class);

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Historial;
 use Illuminate\Http\Request;
 
+use App\Models\Patient;
+use App\Models\Doctor;
+
 class HistorialController extends Controller
 {
     /**
@@ -12,7 +15,8 @@ class HistorialController extends Controller
      */
     public function index()
     {
-        //
+        $historials = Historial::with(['patient', 'doctor'])->get();
+        return view('historials.index', compact('historials'));
     }
 
     /**
@@ -20,7 +24,9 @@ class HistorialController extends Controller
      */
     public function create()
     {
-        //
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        return view('historials.create', compact('patients', 'doctors'));
     }
 
     /**
@@ -28,7 +34,17 @@ class HistorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'patient_id' => 'required|exists:patients,id',
+            'doctor_id' => 'required|exists:doctors,id',
+            'date' => 'required|date',
+            'description' => 'required|string',
+        ]);
+
+        Historial::create($request->all());
+
+        return redirect()->route('historials.index')
+                        ->with('success', 'Historial created successfully.');
     }
 
     /**
@@ -36,7 +52,7 @@ class HistorialController extends Controller
      */
     public function show(Historial $historial)
     {
-        //
+        return view('historials.show', compact('historial'));
     }
 
     /**

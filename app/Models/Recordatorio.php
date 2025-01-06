@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Recordatorio extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'type',
+        'message',
+        'scheduled_at'
+    ];
+
+    /* Relación con el modelo User (puede ser Paciente, Medico, Administrador, etc.)*/
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

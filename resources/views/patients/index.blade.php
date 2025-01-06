@@ -9,8 +9,11 @@
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
+                <th>Last name</th>
+                <th>Birth date</th>
                 <th>Edad</th>
                 <th>Contacto</th>
+                <th>Email</th>
                 <th>Acción</th>
             </tr>
         </thead>
