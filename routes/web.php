@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\SecretariaController;
+use App\Http\Controllers\CitaController;
+use App\Http\Controllers\DisponibilidadController;
+use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\RecordatorioController;
+use App\Http\Controllers\GerenciaController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +44,17 @@ Route::get('/panelPaciente', function () {
 Route::get('/register', function () {
     return view('register');
 });
+*/
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::resource('patients', PatientController::class);
+Route::resource('doctors', DoctorController::class);
+Route::resource('historials', HistorialController::class);
+Route::resource('secretarias', SecretariaController::class);
+Route::resource('citas', CitaController::class);
+Route::resource('disponibilidades', DisponibilidadController::class);
+Route::resource('notificaciones', NotificacionController::class);
+Route::resource('recordatorios', RecordatorioController::class);
+Route::resource('gerencias', GerenciaController::class);
