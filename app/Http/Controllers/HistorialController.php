@@ -60,7 +60,9 @@ class HistorialController extends Controller
      */
     public function edit(Historial $historial)
     {
-        //
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        return view('historials.edit', compact('historial', 'patients', 'doctors'));
     }
 
     /**
@@ -68,7 +70,17 @@ class HistorialController extends Controller
      */
     public function update(Request $request, Historial $historial)
     {
-        //
+        $request->validate([
+            'patient_id' => 'required|exists:patients,id',
+            'doctor_id' => 'required|exists:doctors,id',
+            'date' => 'required|date',
+            'description' => 'required|string',
+        ]);
+
+        $historial->update($request->all());
+
+        return redirect()->route('historials.index')
+                        ->with('success', 'Historial updated successfully.');
     }
 
     /**
@@ -76,6 +88,9 @@ class HistorialController extends Controller
      */
     public function destroy(Historial $historial)
     {
-        //
+        $historial->delete();
+
+        return redirect()->route('historials.index')
+                        ->with('success', 'Historial deleted successfully.');
     }
 }

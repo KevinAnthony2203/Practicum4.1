@@ -58,7 +58,8 @@ class RecordatorioController extends Controller
      */
     public function edit(Recordatorio $recordatorio)
     {
-        //
+        $users = User::all();
+        return view('recordatorios.edit', compact('recordatorio', 'users'));
     }
 
     /**
@@ -66,7 +67,17 @@ class RecordatorioController extends Controller
      */
     public function update(Request $request, Recordatorio $recordatorio)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'type' => 'required|string',
+            'message' => 'required|string',
+            'scheduled_at' => 'required|date'
+        ]);
+
+        $recordatorio->update($request->all());
+
+        return redirect()->route('recordatorios.index')
+                        ->with('success', 'Recordatorio updated successfully.');
     }
 
     /**
@@ -74,6 +85,9 @@ class RecordatorioController extends Controller
      */
     public function destroy(Recordatorio $recordatorio)
     {
-        //
+        $recordatorio->delete();
+
+        return redirect()->route('recordatorios.index')
+                        ->with('success', 'Recordatorio deleted successfully.');
     }
 }

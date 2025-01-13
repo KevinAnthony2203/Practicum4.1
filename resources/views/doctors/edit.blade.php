@@ -16,10 +16,6 @@
         <input type="text" name="last_name" value="{{ $doctor->last_name }}" required><br>
         <label for="specialty">Specialty:</label>
         <input type="text" name="specialty" value="{{ $doctor->specialty }}" required><br>
-        <label for="phone">Phone:</label>
-        <input type="text" name="phone" value="{{ $doctor->phone }}" required><br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" value="{{ $doctor->email }}" required><br>
         <button type="submit">Update</button>
     </form>
 </body>

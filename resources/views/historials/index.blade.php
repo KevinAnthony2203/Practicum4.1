@@ -9,11 +9,11 @@
     <table>
         <thead>
             <tr>
-                <th>Patient</th>
+                <th>Paciente</th>
                 <th>Doctor</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>

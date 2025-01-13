@@ -53,7 +53,7 @@ class SecretariaController extends Controller
      */
     public function edit(Secretaria $secretaria)
     {
-        //
+        return view('secretarias.edit', compact('secretaria'));
     }
 
     /**
@@ -61,7 +61,15 @@ class SecretariaController extends Controller
      */
     public function update(Request $request, Secretaria $secretaria)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255' . $secretaria->id,
+        ]);
+
+        $secretaria->update($request->all());
+
+        return redirect()->route('secretarias.index')
+                        ->with('success', 'Secretaria updated successfully.');
     }
 
     /**
@@ -69,6 +77,9 @@ class SecretariaController extends Controller
      */
     public function destroy(Secretaria $secretaria)
     {
-        //
+        $secretaria->delete();
+
+        return redirect()->route('secretarias.index')
+                        ->with('success', 'Secretaria deleted successfully.');
     }
 }

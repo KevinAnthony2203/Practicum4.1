@@ -13,8 +13,8 @@
         <input type="text" name="last_name" required><br>
         <label for="birth_date">Birth Date:</label>
         <input type="date" name="birth_date" required><br>
-        <label for="edad">Edad:</label>
-        <input type="int" name="edad" required><br>
+        <label for="age">Edad:</label>
+        <input type="int" name="age" required><br>
         <label for="contacto">Contacto:</label>
         <input type="text" name="contacto" required><br>
         <label for="email">Email:</label>

@@ -55,7 +55,7 @@ class EstadisticaController extends Controller
      */
     public function edit(Estadistica $estadistica)
     {
-        //
+        return view('estadisticas.edit', compact('estadistica'));
     }
 
     /**
@@ -63,7 +63,17 @@ class EstadisticaController extends Controller
      */
     public function update(Request $request, Estadistica $estadistica)
     {
-        //
+        $request->validate([
+            'date' => 'required|date',
+            'citas_programadas' => 'required|integer',
+            'citas_canceladas' => 'required|integer',
+            'citas_completadas' => 'required|integer',
+        ]);
+
+        $estadistica->update($request->all());
+
+        return redirect()->route('estadisticas.index')
+                        ->with('success', 'Estadística updated successfully.');
     }
 
     /**
@@ -71,6 +81,9 @@ class EstadisticaController extends Controller
      */
     public function destroy(Estadistica $estadistica)
     {
-        //
+        $estadistica->delete();
+
+        return redirect()->route('estadisticas.index')
+                        ->with('success', 'Estadística deleted successfully.');
     }
 }

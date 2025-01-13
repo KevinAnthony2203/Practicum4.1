@@ -12,9 +12,9 @@ class Patient extends Model
         'name',
         'last_name',
         'birth_date',
-        'edad',
+        'age',
         'contacto',
-        'email',
+        'email'
     ];
 
 }

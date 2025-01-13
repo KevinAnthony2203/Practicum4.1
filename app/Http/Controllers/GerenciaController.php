@@ -54,7 +54,7 @@ class GerenciaController extends Controller
      */
     public function edit(Gerencia $gerencia)
     {
-        //
+        return view('gerencias.edit', compact('gerencia'));
     }
 
     /**
@@ -62,7 +62,16 @@ class GerenciaController extends Controller
      */
     public function update(Request $request, Gerencia $gerencia)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+        ]);
+
+        $gerencia->update($request->all());
+
+        return redirect()->route('gerencias.index')
+                        ->with('success', 'Gerencia updated successfully.');
     }
 
     /**
@@ -70,6 +79,9 @@ class GerenciaController extends Controller
      */
     public function destroy(Gerencia $gerencia)
     {
-        //
+        $gerencia->delete();
+
+        return redirect()->route('gerencias.index')
+                        ->with('success', 'Gerencia deleted successfully.');
     }
 }

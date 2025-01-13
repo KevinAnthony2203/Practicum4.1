@@ -60,7 +60,9 @@ class CitaController extends Controller
      */
     public function edit(Cita $cita)
     {
-        //
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        return view('citas.edit', compact('cita', 'patients', 'doctors'));
     }
 
     /**
@@ -68,7 +70,18 @@ class CitaController extends Controller
      */
     public function update(Request $request, Cita $cita)
     {
-        //
+        $request->validate([
+            'patient_id' => 'required|exists:patients,id',
+            'doctor_id' => 'required|exists:doctors,id',
+            'date' => 'required|date',
+            'time' => 'required',
+            'status' => 'required|string',
+        ]);
+
+        $cita->update($request->all());
+
+        return redirect()->route('citas.index')
+                        ->with('success', 'Cita updated successfully.');
     }
 
     /**
@@ -76,6 +89,9 @@ class CitaController extends Controller
      */
     public function destroy(Cita $cita)
     {
-        //
+        $cita->delete();
+
+        return redirect()->route('citas.index')
+                        ->with('success', 'Cita deleted successfully.');
     }
 }

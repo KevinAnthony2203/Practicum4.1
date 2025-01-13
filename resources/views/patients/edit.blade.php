@@ -14,8 +14,8 @@
         <input type="text" name="last_name" value="{{ $patient->last_name }}" required><br>
         <label for="birth_date">Birth Date:</label>
         <input type="date" name="birth_date" value="{{ $patient->birth_date }}" required><br>
-        <label for="edad">Edad:</label>
-        <input type="int" name="edad" value="{{ $patient->edad }}" required><br>
+        <label for="age">Edad:</label>
+        <input type="int" name="age" value="{{ $patient->edad }}" required><br>
         <label for="contacto">Contacto:</label>
         <input type="text" name="contacto" value="{{ $patient->contacto }}" required><br>
         <label for="email">Email:</label>

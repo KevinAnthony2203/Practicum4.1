@@ -58,7 +58,8 @@ class DisponibilidadController extends Controller
      */
     public function edit(Disponibilidad $disponibilidad)
     {
-        //
+        $doctors = Doctor::all();
+        return view('disponibilidades.edit', compact('disponibilidad', 'doctors'));
     }
 
     /**
@@ -66,7 +67,17 @@ class DisponibilidadController extends Controller
      */
     public function update(Request $request, Disponibilidad $disponibilidad)
     {
-        //
+        $request->validate([
+            'doctor_id' => 'required|exists:doctors,id',
+            'date' => 'required|date',
+            'start_time' => 'required',
+            'end_time' => 'required',
+        ]);
+
+        $disponibilidad->update($request->all());
+
+        return redirect()->route('disponibilidades.index')
+                        ->with('success', 'Disponibilidad updated successfully.');
     }
 
     /**
@@ -74,6 +85,9 @@ class DisponibilidadController extends Controller
      */
     public function destroy(Disponibilidad $disponibilidad)
     {
-        //
+        $disponibilidad->delete();
+
+        return redirect()->route('disponibilidades.index')
+                        ->with('success', 'Disponibilidad deleted successfully.');
     }
 }

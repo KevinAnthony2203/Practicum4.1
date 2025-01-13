@@ -55,7 +55,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+        return view('doctors.edit', compact('doctor'));
     }
 
     /**
@@ -63,7 +63,15 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        //
+        $request->validate([
+            'id' => 'required|int',
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255' . $doctor->id,
+            ]);
+            $doctor->update($request->all());
+            return redirect()->route('doctors.index')
+                            ->with('success', 'Doctor updated successfully.');
     }
 
     /**
@@ -71,6 +79,8 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+        return redirect()->route('doctors.index')
+                        ->with('success', 'Doctor deleted successfully.');
     }
 }

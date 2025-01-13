@@ -58,7 +58,8 @@ class NotificacionController extends Controller
      */
     public function edit(Notificacion $notificacion)
     {
-        //
+        $users = User::all();
+        return view('notificaciones.edit', compact('notificacion', 'users'));
     }
 
     /**
@@ -66,7 +67,17 @@ class NotificacionController extends Controller
      */
     public function update(Request $request, Notificacion $notificacion)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'type' => 'required|string',
+            'message' => 'required|string',
+            'read_at' => 'nullable|date'
+        ]);
+
+        $notificacion->update($request->all());
+
+        return redirect()->route('notificaciones.index')
+                        ->with('success', 'Notificación updated successfully.');
     }
 
     /**
@@ -74,6 +85,9 @@ class NotificacionController extends Controller
      */
     public function destroy(Notificacion $notificacion)
     {
-        //
+        $notificacion->delete();
+
+        return redirect()->route('notificaciones.index')
+                        ->with('success', 'Notificación deleted successfully.');
     }
 }

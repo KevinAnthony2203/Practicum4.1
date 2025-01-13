@@ -1,11 +1,13 @@
+@extends ('layouts.master')
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Gerencias</title>
 </head>
 <body>
-    <h1>Gerencias</h1>
-    <a href="{{ route('gerencias.create') }}">Create New Gerencia</a>
+    <h2>Gerencias</h2>
+    <a href="{{ route('gerencias.create') }}">Crear Nueva Gerencia</a>
     <table>
         <thead>
             <tr>
