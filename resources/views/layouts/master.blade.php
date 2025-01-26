@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +27,30 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('doctors.index') }}">Doctores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('citas.index') }}">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('disponibilidades.index') }}">Disponibilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('estadisticas.index') }}">Estadísticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('gerencias.index') }}">Gerencias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('historials.index') }}">Historiales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('notificaciones.index') }}">Notificaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('recordatorios.index') }}">Recordatorios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('secretarias.index') }}">Secretarías</a>
                     </li>
                 </ul>
             </div>

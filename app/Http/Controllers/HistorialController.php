@@ -15,8 +15,8 @@ class HistorialController extends Controller
      */
     public function index()
     {
-        $historials = Historial::with(['patient', 'doctor'])->get();
-        return view('historials.index', compact('historials'));
+        $historials = Historial::where('patient_id', Auth::id())->get();
+        return view('patient.historial', compact('historials'));
     }
 
     /**

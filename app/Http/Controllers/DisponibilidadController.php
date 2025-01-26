@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Disponibilidad;
-use Illuminate\Http\Request;
-
 use App\Models\Doctor;
+use Illuminate\Http\Request;
 
 class DisponibilidadController extends Controller
 {

@@ -82,4 +82,9 @@ class SecretariaController extends Controller
         return redirect()->route('secretarias.index')
                         ->with('success', 'Secretaria deleted successfully.');
     }
+
+    public function dashboard()
+    {
+        return view('secretaria.dashboard');
+    }
 }

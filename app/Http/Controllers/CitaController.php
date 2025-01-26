@@ -14,8 +14,8 @@ class CitaController extends Controller
      */
     public function index()
     {
-        $citas = Cita::with(['patient', 'doctor'])->get();
-        return view('citas.index', compact('citas'));
+        $citas = Cita::where('patient_id', Auth::id())->get();
+        return view('patient.citas', compact('citas'));
     }
 
     /**

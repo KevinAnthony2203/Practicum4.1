@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Citas</title>
-</head>
-<body>
+@extends('layouts.master')
+@section('title', 'Citas')
+
+@section('content')
     <h1>Citas</h1>
-    <a href="{{ route('citas.create') }}">Create New Cita</a>
+    <a href="{{ route('citas.create') }}">Crea Nueva Cita</a>
     <table>
         <thead>
             <tr>
@@ -38,5 +36,4 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection

@@ -8,9 +8,9 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>Name</th>
-                <th>Last name</th>
-                <th>Specialty</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
                 <th>Actions</th>
             </tr>
         </thead>

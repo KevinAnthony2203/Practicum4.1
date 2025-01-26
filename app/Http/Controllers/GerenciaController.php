@@ -84,4 +84,9 @@ class GerenciaController extends Controller
         return redirect()->route('gerencias.index')
                         ->with('success', 'Gerencia deleted successfully.');
     }
+
+    public function dashboard()
+    {
+        return view('gerencia.dashboard');
+    }
 }

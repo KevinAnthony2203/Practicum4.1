@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Notificaciones</h1>
-    <a href="{{ route('notificaciones.create') }}">Create New Notificación</a>
+    <a href="{{ route('notificaciones.create') }}">Crea Nueva Notificación</a>
     <table>
         <thead>
             <tr>

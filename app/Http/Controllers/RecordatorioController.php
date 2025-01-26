@@ -14,8 +14,8 @@ class RecordatorioController extends Controller
      */
     public function index()
     {
-        $recordatorios = Recordatorio::with('user')->get();
-        return view('recordatorios.index', compact('recordatorios'));
+        $recordatorios = Recordatorio::where('patient_id', Auth::id())->get();
+        return view('patient.recordatorios', compact('recordatorios'));
     }
 
     /**
@@ -23,8 +23,7 @@ class RecordatorioController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('recordatorios.create', compact('users'));
+        return view('patients.create');
     }
 
     /**
