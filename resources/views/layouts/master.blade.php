@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active" href="{{ route('home') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('patients.index') }}">Pacientes</a>
@@ -29,16 +29,19 @@
                         <a class="nav-link" href="{{ route('doctors.index') }}">Doctores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('citas.index') }}">Citas</a>
+                        <a class="nav-link" href="{{ route('secretarias.index') }}">Secretarías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('gerencias.index') }}">Gerencias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('disponibilidades.index') }}">Disponibilidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('estadisticas.index') }}">Estadísticas</a>
+                        <a class="nav-link" href="{{ route('citas.index') }}">Citas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('gerencias.index') }}">Gerencias</a>
+                        <a class="nav-link" href="{{ route('estadisticas.index') }}">Estadísticas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('historials.index') }}">Historiales</a>
@@ -49,9 +52,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('recordatorios.index') }}">Recordatorios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('secretarias.index') }}">Secretarías</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -62,6 +63,8 @@
     <footer class="bg-light text-center text-lg-start mt-4 py-3">
         <div class="text-center text-muted">
             &copy; {{ date('Y') }} Hospital Isidro Ayora.
+            <br>
+            <p>Autor: Kevin Anthony Mosquera</p>
         </div>
     </footer>
     <!-- Bootstrap JS -->

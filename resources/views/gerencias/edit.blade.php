@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Gerencia</title>
-</head>
-<body>
-    <h1>Edit Gerencia</h1>
+@extends('layouts.master')
+
+@section('title', 'Editar Gerencia')
+
+@section('content')
+    <h1>Editar Gerencia</h1>
     <form action="{{ route('gerencias.update', $gerencia->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -16,5 +15,4 @@
         <input type="text" name="position" value="{{ $gerencia->position }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

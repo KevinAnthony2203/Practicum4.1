@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Estadística</title>
-</head>
-<body>
-    <h1>Edit Estadística</h1>
+@extends('layouts.master')
+
+@section('title', 'Editar Estadística')
+
+@section('content')
+    <h1>Editar Estadística</h1>
     <form action="{{ route('estadisticas.update', $estadistica->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -18,5 +17,4 @@
         <input type="number" name="citas_completadas" value="{{ $estadistica->citas_completadas }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

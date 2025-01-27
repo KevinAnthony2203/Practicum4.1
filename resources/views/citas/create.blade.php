@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Cita</title>
-</head>
-<body>
-    <h1>Create Cita</h1>
+@extends('layouts.master')
+
+@section('title', 'Crear Cita')
+
+@section('content')
+    <h1>Crea Cita</h1>
     <form action="{{ route('citas.store') }}" method="POST">
         @csrf
         <label for="patient_id">Patient:</label>
@@ -27,5 +26,4 @@
         <input type="text" name="status" required><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

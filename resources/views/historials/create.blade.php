@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Historial</title>
-</head>
-<body>
-    <h1>Create Historial</h1>
+@extends('layouts.master')
+
+@section('title', 'Crear Historial')
+
+@section('content')
+    <h1>Crear Historial</h1>
     <form action="{{ route('historials.store') }}" method="POST">
         @csrf
         <label for="patient_id">Patient:</label>
@@ -25,5 +24,4 @@
         <textarea name="description" required></textarea><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

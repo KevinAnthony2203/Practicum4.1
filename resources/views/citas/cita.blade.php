@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Cita</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Edit Cita')
+
+@section('content')
     <h1>Edit Cita</h1>
     <form action="{{ route('citas.update', $cita->id) }}" method="POST">
         @csrf
@@ -32,5 +31,4 @@
         <input type="text" name="status" value="{{ $cita->status }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Estadística</title>
-</head>
-<body>
-    <h1>Create Estadística</h1>
+@extends('layouts.master')
+
+@section('title', 'Crear Estadística')
+
+@section('content')
+    <h1>Crear Estadística</h1>
     <form action="{{ route('estadisticas.store') }}" method="POST">
         @csrf
         <label for="date">Date:</label>
@@ -17,5 +16,4 @@
         <input type="number" name="citas_completadas" required><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

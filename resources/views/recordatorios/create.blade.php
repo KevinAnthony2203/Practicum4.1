@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Recordatorio</title>
-</head>
-<body>
-    <h1>Create Recordatorio</h1>
+@extends('layouts.master')
+
+@section('title', 'Crear Recordatorio')
+
+@section('content')
+    <h1>Crear Recordatorio</h1>
     <form action="{{ route('recordatorios.store') }}" method="POST">
         @csrf
         <label for="user_id">User:</label>
@@ -21,5 +20,4 @@
         <input type="datetime-local" name="scheduled_at" required><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

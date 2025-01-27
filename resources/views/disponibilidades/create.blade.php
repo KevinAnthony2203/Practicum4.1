@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Disponibilidad</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Crear Disponibilidad')
+
+@section('content')
     <h1>Create Disponibilidad</h1>
     <form action="{{ route('disponibilidades.store') }}" method="POST">
         @csrf
@@ -21,5 +20,4 @@
         <input type="time" name="end_time" required><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

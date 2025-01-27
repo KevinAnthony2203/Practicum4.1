@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Recordatorio</title>
-</head>
-<body>
-    <h1>Edit Recordatorio</h1>
+@extends('layouts.master')
+
+@section('title', 'Editar Recordatorio')
+
+@section('content')
+    <h1>Editar Recordatorio</h1>
     <form action="{{ route('recordatorios.update', $recordatorio->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -24,5 +23,4 @@
         <input type="datetime-local" name="scheduled_at" value="{{ $recordatorio->scheduled_at }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

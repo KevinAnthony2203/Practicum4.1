@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Disponibilidad</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Editar Disponibilidad')
+
+@section('content')
     <h1>Edit Disponibilidad</h1>
     <form action="{{ route('disponibilidades.update', $disponibilidad->id) }}" method="POST">
         @csrf
@@ -24,5 +23,4 @@
         <input type="time" name="end_time" value="{{ $disponibilidad->end_time }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

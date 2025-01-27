@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Doctor</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Crear Doctor')
+
+@section('content')
     <h1>Create Doctor</h1>
     <form action="{{ route('doctors.store') }}" method="POST">
         @csrf
@@ -16,5 +15,4 @@
         <label for="specialty">Specialty:</label>
         <input type="text" name="specialty" required><br>
     </form>
-</body>
-</html>
+@endsection

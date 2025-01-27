@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Historials</title>
-</head>
-<body>
-    <h1>Historials</h1>
+@extends('layouts.master')
+
+@section('title', 'Historiales')
+
+@section('content')
+    <h1>Historiales</h1>
     <a href="{{ route('historials.create') }}">Create New Historial</a>
     <table>
         <thead>
@@ -36,5 +35,4 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection

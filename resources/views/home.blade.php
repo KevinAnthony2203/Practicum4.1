@@ -3,6 +3,11 @@
 @section('title', 'Página de Inicio')
 
 @section('content')
+<div class="jumbotron text-center">
+    <h1 class="display-4">Bienvenido al sitio web del Hospital Isidro Ayora</h1>
+    <p class="lead"> Gestion de Pacientes y Doctores</p>
+    <hr class="my-4">
+</div>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -47,15 +52,6 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Administrador</h5>
-                    <p class="card-text">Acceso para administradores.</p>
-                    <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
                     <h5 class="card-title">Paciente</h5>
                     <p class="card-text">Acceso para pacientes.</p>
                     <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
@@ -65,8 +61,17 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Personal Sanitario</h5>
-                    <p class="card-text">Acceso para personal sanitario.</p>
+                    <h5 class="card-title">Administrador</h5>
+                    <p class="card-text">Acceso para administradores.</p>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Personal</h5>
+                    <p class="card-text">Acceso para personal.</p>
                     <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
                 </div>
             </div>

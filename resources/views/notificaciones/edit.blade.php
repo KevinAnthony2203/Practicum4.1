@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Notificación</title>
-</head>
-<body>
-    <h1>Edit Notificación</h1>
+@extends('layouts.master')
+
+@section('title', 'Editar Notificación')
+
+@section('content')
+    <h1>Editar Notificación</h1>
     <form action="{{ route('notificaciones.update', $notificacion->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -24,5 +23,4 @@
         <input type="date" name="read_at" value="{{ $notificacion->read_at }}"><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

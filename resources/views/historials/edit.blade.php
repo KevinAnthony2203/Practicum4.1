@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Historial</title>
-</head>
-<body>
-    <h1>Edit Historial</h1>
+@extends('layouts.master')
+
+@section('title', 'Editar Historial')
+
+@section('content')
+    <h1>Editar Historial</h1>
     <form action="{{ route('historials.update', $historial->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -30,5 +29,4 @@
         <textarea name="description" required>{{ $historial->description }}</textarea><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

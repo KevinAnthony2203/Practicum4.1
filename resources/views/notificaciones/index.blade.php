@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Notificaciones</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Notificaciones')
+
+@section('content')
     <h1>Notificaciones</h1>
-    <a href="{{ route('notificaciones.create') }}">Crea Nueva Notificación</a>
-    <table>
+    <a href="{{ route('patients.create') }}" class="btn btn-primary mb-3">Crear Nuevo Paciente</a>
+    <table class="table">
         <thead>
             <tr>
-                <th>User</th>
-                <th>Type</th>
-                <th>Message</th>
-                <th>Read At</th>
-                <th>Actions</th>
+                <th>Usuario</th>
+                <th>Tipo</th>
+                <th>Mensaje</th>
+                <th>Leído el</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -24,17 +23,16 @@
                     <td>{{ $notificacion->message }}</td>
                     <td>{{ $notificacion->read_at }}</td>
                     <td>
-                        <a href="{{ route('notificaciones.show', $notificacion->id) }}">View</a>
-                        <a href="{{ route('notificaciones.edit', $notificacion->id) }}">Edit</a>
+                        <a href="{{ route('notificaciones.show', $notificacion->id) }}" class="btn btn-info">Ver</a>
+                        <a href="{{ route('notificaciones.edit', $notificacion->id) }}" class="btn btn-warning">Editar</a>
                         <form action="{{ route('notificaciones.destroy', $notificacion->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection

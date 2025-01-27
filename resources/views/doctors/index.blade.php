@@ -3,15 +3,16 @@
 @section ('title', 'Listado de Doctores')
 
 @section ('content')
-    <h2>Listado de Doctores</h2>
-    <table class="table-striped">
+    <h1>Listado de Doctores</h1>
+    <a href="{{ route('doctors.create') }}" class="btn btn-primary mb-3">Crear Nuevo Doctor</a>
+    <table class="table">
         <thead>
             <tr>
-                <th>id</th>
+                <th>Identificación</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Especialidad</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>

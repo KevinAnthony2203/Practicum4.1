@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Doctor</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Editar Doctor')
+
+@section('content')
     <h1>Edit Doctor</h1>
     <form action="{{ route('doctors.update', $doctor->id) }}" method="POST">
         @csrf
@@ -18,5 +17,4 @@
         <input type="text" name="specialty" value="{{ $doctor->specialty }}" required><br>
         <button type="submit">Update</button>
     </form>
-</body>
-</html>
+@endsection

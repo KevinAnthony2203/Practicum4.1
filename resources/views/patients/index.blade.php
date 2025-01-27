@@ -8,6 +8,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Identificación</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Fecha de Nacimiento</th>

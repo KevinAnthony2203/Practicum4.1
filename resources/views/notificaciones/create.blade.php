@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Notificación</title>
-</head>
-<body>
-    <h1>Create Notificación</h1>
+@extends('layouts.master')
+
+@section('title', 'Crear Notificación')
+
+@section('content')
+    <h1>Crear Notificación</h1>
     <form action="{{ route('notificaciones.store') }}" method="POST">
         @csrf
         <label for="user_id">User:</label>
@@ -21,5 +20,4 @@
         <input type="date" name="read_at"><br>
         <button type="submit">Create</button>
     </form>
-</body>
-</html>
+@endsection

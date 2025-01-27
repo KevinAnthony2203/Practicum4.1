@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Estadísticas</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Estadísticas')
+
+@section('content')
     <h1>Estadísticas</h1>
-    <a href="{{ route('estadisticas.create') }}">Create New Estadística</a>
-    <table>
+    <a href="{{ route('estadisticas.create') }}" class="btn btn-primary mb-3">Crear Nueva Estadistica</a>
+    <table class="table">
         <thead>
             <tr>
                 <th>Date</th>
@@ -36,5 +35,4 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection
