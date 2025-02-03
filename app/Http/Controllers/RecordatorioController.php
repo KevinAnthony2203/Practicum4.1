@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recordatorio;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class RecordatorioController extends Controller
@@ -15,7 +15,7 @@ class RecordatorioController extends Controller
     public function index()
     {
         $recordatorios = Recordatorio::where('patient_id', Auth::id())->get();
-        return view('patient.recordatorios', compact('recordatorios'));
+        return view('patients.recordatorios', compact('recordatorios'));
     }
 
     /**

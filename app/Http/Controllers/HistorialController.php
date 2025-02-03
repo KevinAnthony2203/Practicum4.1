@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Historial;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Patient;
 use App\Models\Doctor;
 
@@ -16,7 +16,7 @@ class HistorialController extends Controller
     public function index()
     {
         $historials = Historial::where('patient_id', Auth::id())->get();
-        return view('patient.historial', compact('historials'));
+        return view('patients.historial', compact('historials'));
     }
 
     /**

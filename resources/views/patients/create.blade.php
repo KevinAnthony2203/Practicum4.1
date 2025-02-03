@@ -6,6 +6,8 @@
 <h1>Crear Paciente</h1>
 <form action="{{ route('patients.store') }}" method="POST">
     @csrf
+    <label for="id">Identificacion:</label>
+    <input type="text" name="ide" required><br>
     <label for="name">Nombre:</label>
     <input type="text" name="name" required><br>
     <label for="last_name">Apellido:</label>

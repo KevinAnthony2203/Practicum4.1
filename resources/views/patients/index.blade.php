@@ -21,6 +21,7 @@
     <tbody>
         @foreach($patients as $patient)
             <tr>
+                <td>{{ $patient->id }}</td>
                 <td>{{ $patient->name }}</td>
                 <td>{{ $patient->last_name }}</td>
                 <td>{{ $patient->birth_date }}</td>

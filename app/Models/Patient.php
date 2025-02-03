@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name
@@ -36,6 +36,7 @@ class Patient extends Model
     use HasFactory;
 
     protected $fillable = [
+        'idenificacion',
         'name',
         'last_name',
         'birth_date',

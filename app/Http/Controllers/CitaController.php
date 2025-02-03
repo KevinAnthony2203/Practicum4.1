@@ -6,6 +6,7 @@ use App\Models\Cita;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Doctor;
+use Illuminate\Support\Facades\Auth;
 
 class CitaController extends Controller
 {
@@ -15,7 +16,7 @@ class CitaController extends Controller
     public function index()
     {
         $citas = Cita::where('patient_id', Auth::id())->get();
-        return view('patient.citas', compact('citas'));
+        return view('patients.citas', compact('citas'));
     }
 
     /**
