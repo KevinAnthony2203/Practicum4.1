@@ -4,6 +4,7 @@
 
 @section('content')
 <h1>Detalles del Paciente</h1>
+<p><strong>Identificacion:</strong> {{ $patient->id }}</p>
 <p><strong>Nombre:</strong> {{ $patient->name }}</p>
 <p><strong>Apellido:</strong> {{ $patient->last_name }}</p>
 <p><strong>Fecha de Nacimiento:</strong> {{ $patient->birth_date }}</p>

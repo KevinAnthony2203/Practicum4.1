@@ -87,6 +87,6 @@ class GerenciaController extends Controller
 
     public function dashboard()
     {
-        return view('gerencia.dashboard');
+        return view('gerencias.dashboard');
     }
 }

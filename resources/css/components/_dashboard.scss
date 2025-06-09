@@ -1,0 +1,23 @@
+.border-left {
+    &-primary { border-left: 4px solid $primary; }
+    &-success { border-left: 4px solid $success; }
+    &-info { border-left: 4px solid $info; }
+    &-warning { border-left: 4px solid $warning; }
+}
+
+.cita-item {
+    &:hover {
+        background-color: $gray-100;
+    }
+}
+
+#calendar {
+    width: 100%;
+    min-height: 700px;
+    margin: 1em 0;
+}
+
+.citas-hoy-list {
+    max-height: 400px;
+    overflow-y: auto;
+}

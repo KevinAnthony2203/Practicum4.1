@@ -182,5 +182,11 @@ return [
          */
 
         'store' => 'default',
+
+        /*
+         * The cache key used to store model permissions.
+         */
+
+        'model_key' => 'name',
     ],
 ];

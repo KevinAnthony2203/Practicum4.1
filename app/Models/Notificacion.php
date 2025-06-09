@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $user_id
@@ -41,9 +41,24 @@ class Notificacion extends Model
         'read_at'
     ];
 
+    protected $casts = [
+        'read_at' => 'datetime'
+    ];
+
     // Relación con el modelo User (puede ser Paciente, Medico, Administrador, etc.)
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    // Getters para mantener compatibilidad con la vista
+    public function getTituloAttribute()
+    {
+        return ucfirst($this->type);
+    }
+
+    public function getMensajeAttribute()
+    {
+        return $this->message;
     }
 }

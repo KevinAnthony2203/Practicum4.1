@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('specialty');
+            $table->integer('duracion_cita')->default(30); // duración en minutos
+            $table->integer('tiempo_entre_citas')->default(10); // tiempo en minutos
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

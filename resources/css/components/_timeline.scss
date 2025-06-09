@@ -1,0 +1,50 @@
+.timeline {
+    position: relative;
+    padding: 20px 0;
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 20px;
+        height: 100%;
+        width: 2px;
+        background: $gray-300;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 50px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $primary;
+    border: 2px solid white;
+}
+
+.timeline-content {
+    padding: 10px;
+    border-radius: $border-radius;
+    background: $gray-100;
+}
+
+.timeline-title {
+    margin: 0;
+    color: $primary;
+}
+
+.list-group-item {
+    &:hover {
+        background-color: $gray-100;
+    }
+}

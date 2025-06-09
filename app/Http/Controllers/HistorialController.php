@@ -15,8 +15,22 @@ class HistorialController extends Controller
      */
     public function index()
     {
-        $historials = Historial::where('patient_id', Auth::id())->get();
-        return view('patients.historial', compact('historials'));
+        $user = auth()->user();
+        $paciente = $user->patient;
+
+        $registros = Historial::where('patient_id', $paciente->id)
+            ->with('doctor')
+            ->orderBy('fecha', 'desc')
+            ->paginate(10);
+
+        // Calcular estadísticas
+        $estadisticas = [
+            'consultas' => $registros->where('tipo', 'consulta')->count(),
+            'examenes' => $registros->where('tipo', 'examen')->count(),
+            'ultima_consulta' => $registros->where('tipo', 'consulta')->first()?->fecha
+        ];
+
+        return view('patients.historial', compact('registros', 'paciente', 'estadisticas'));
     }
 
     /**

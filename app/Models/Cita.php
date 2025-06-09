@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $patient_id
@@ -35,23 +36,28 @@ class Cita extends Model
 {
     use HasFactory;
 
+    protected $table = 'citas';
+
     protected $fillable = [
         'patient_id',
         'doctor_id',
-        'date',
-        'time',
-        'status'
+        'fecha_hora',
+        'motivo',
+        'estado',
+        'notas'
     ];
 
-    /* Relación con el modelo Patient*/
-    public function patient()
+    protected $casts = [
+        'fecha_hora' => 'datetime',
+    ];
+
+    public function paciente(): BelongsTo
     {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(User::class, 'patient_id');
     }
 
-    /* Relación con el modelo Doctor*/
-    public function doctor()
+    public function doctor(): BelongsTo
     {
-        return $this->belongsTo(Doctor::class);
+        return $this->belongsTo(User::class, 'doctor_id');
     }
 }

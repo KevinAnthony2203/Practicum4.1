@@ -36,12 +36,59 @@ class Patient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idenificacion',
+        'user_id',
+        'identificacion',
         'name',
         'last_name',
         'birth_date',
-        'age',
         'contacto',
-        'email',
+        'blood_type',
+        'allergies',
+        'medical_conditions',
+        'email'
     ];
+
+    protected $casts = [
+        'birth_date' => 'date',
+    ];
+
+    protected $appends = ['age'];
+
+    public function getAgeAttribute()
+    {
+        if (!$this->birth_date) {
+            return null;
+        }
+        return $this->birth_date->diffInYears(now());
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function historials()
+    {
+        return $this->hasMany(Historial::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'patient_id', 'user_id');
+    }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
+
+    public function recordatorios()
+    {
+        return $this->hasMany(Recordatorio::class);
+    }
+
+    public function notificacionConfig()
+    {
+        return $this->hasOne(NotificacionConfig::class);
+    }
 }

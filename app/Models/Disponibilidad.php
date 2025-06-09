@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $doctor_id
@@ -39,6 +39,12 @@ class Disponibilidad extends Model
         'date',
         'start_time',
         'end_time'
+    ];
+
+    protected $casts = [
+        'date' => 'date',
+        'start_time' => 'datetime:H:i',
+        'end_time' => 'datetime:H:i'
     ];
 
     /* Relación con el modelo Doctor*/

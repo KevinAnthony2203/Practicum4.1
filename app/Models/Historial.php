@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $patient_id
@@ -36,8 +36,15 @@ class Historial extends Model
     protected $fillable = [
         'patient_id',
         'doctor_id',
-        'date',
-        'description'
+        'fecha',
+        'tipo',
+        'descripcion',
+        'archivos_count'
+    ];
+
+    protected $casts = [
+        'fecha' => 'date',
+        'archivos_count' => 'integer'
     ];
 
     // Relación con el modelo Patient

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $user_id
@@ -32,16 +32,29 @@ class Recordatorio extends Model
 {
     use HasFactory;
 
+    protected $table = 'recordatorios';
+
     protected $fillable = [
-        'user_id',
-        'type',
-        'message',
-        'scheduled_at'
+        'patient_id',
+        'titulo',
+        'descripcion',
+        'fecha_hora',
+        'tipo',
+        'estado'
+    ];
+
+    protected $casts = [
+        'fecha_hora' => 'datetime'
     ];
 
     /* Relación con el modelo User (puede ser Paciente, Medico, Administrador, etc.)*/
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
     }
 }

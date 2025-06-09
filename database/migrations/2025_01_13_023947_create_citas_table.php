@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doctor_id');
-            $table->date('date');
-            $table->time('time');
-            $table->string('status');
+            $table->dateTime('fecha_hora');
+            $table->string('motivo');
+            $table->enum('estado', ['pendiente', 'confirmada', 'cancelada', 'completada'])->default('pendiente');
+            $table->decimal('costo', 8, 2)->default(0.00);
+            $table->text('notas')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

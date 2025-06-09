@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name
@@ -27,10 +27,35 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'id',
-        'name',
-        'last_name',
+        'user_id',
         'specialty',
+        'duracion_cita',
+        'tiempo_entre_citas'
     ];
+
+    // Permitir asignar el ID
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->incrementing = false;
+        });
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function disponibilidades()
+    {
+        return $this->hasMany(Disponibilidad::class);
+    }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
 }

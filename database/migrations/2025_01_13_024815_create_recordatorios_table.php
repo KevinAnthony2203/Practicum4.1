@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('recordatorios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('type');
-            $table->text('message');
-            $table->timestamp('scheduled_at');
+            $table->unsignedBigInteger('patient_id');
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->dateTime('fecha_hora');
+            $table->enum('estado', ['pendiente', 'completado', 'cancelado'])->default('pendiente');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
         });
     }
 

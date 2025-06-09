@@ -1,0 +1,18 @@
+.table {
+    th {
+        background-color: $gray-100;
+        color: $primary;
+        font-weight: 600;
+    }
+
+    td, th {
+        padding: 0.75rem;
+        vertical-align: middle;
+        border: $border-width solid $gray-300;
+    }
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

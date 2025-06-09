@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doctor_id');
-            $table->date('date');
-            $table->text('description');
+            $table->date('fecha');
+            $table->enum('tipo', ['consulta', 'examen']);
+            $table->text('descripcion');
+            $table->integer('archivos_count')->default(0);
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
